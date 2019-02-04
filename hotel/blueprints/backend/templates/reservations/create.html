@@ -1,0 +1,98 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="card">
+  <div class="card bg-light mb-4">
+    <div class="card-header">
+      <h4>Create Reservation</h4>
+    </div>
+  </div>
+  <div class="card-body">
+    <form action="/reservations/create" method="POST">
+      {{ form.csrf_token() }}
+
+      <div class="row">
+        <div class="col">
+          <label for="users_id">Name</label>
+            <select type="text" name="users_id" class="form-control">
+              <option selected>Select name</option>
+              {% for users in users %}
+                <option value="{{users.id}}">{{users.firstname}} {{users.lastname}}</option>
+              {% endfor%}
+            </select>
+        </div>
+        <div class="col">
+          <label for="rooms_id">Room</label>
+            <select type="text" name="rooms_id" class="form-control">
+              <option selected>Select room</option>
+              {% for rooms in rooms %}
+                <option value="{{rooms.id}}">{{rooms.room_type}} {{rooms.price}}  </option>
+              {% endfor%}
+            </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="quantity">Date In</label>
+          <input class="form-control" type="datetime-local" name="date_in" id="date_in">
+              {% for error in form.date_in.errors %}
+              <span><li style="color:red;"> {{error}} </span>
+              {% endfor %}
+            </ul>
+        </div>
+        <div class="col">
+          <label for="quantity">Date Out</label>
+          <input class="form-control" type="datetime-local" name="date_out" id="date_out">
+              {% for error in form.date_out.errors %}
+              <span><li style="color:red;"> {{error}} </span>
+              {% endfor %}
+            </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="quantity">
+            <label for="quantity">Child</label>
+              <br>
+                 <button class="minus-btn" type="button" name="button">
+                  <i class="fa fa-minus"> </i>
+                 </button>
+                  {{form.child_count}}
+                  <button class="plus-btn" type="button" name="button">
+                    <i class="fa fa-plus"> </i>
+                  </button>
+
+                  {% for error in form.child_count.errors %}
+              <span><li style="color:red;"> {{error}} </span>
+              {% endfor %}
+          </div>
+        </div>
+        <div class="col">
+          <div class="quantity">
+            <label for="quantity">Adult</label>
+              <br>
+                 <button class="minus-btn" type="button" name="button">
+                  <i class="fa fa-minus"> </i>
+                 </button>
+                  {{form.adult_count}}
+                  <button class="plus-btn" type="button" name="button">
+                    <i class="fa fa-plus"> </i>
+                  </button>
+          </div>
+        </div>
+      </div>
+
+      <br>          
+      <div class="btn-group">
+        <a href="/reservations" class="btn btn-danger btn-sm">
+          <i class="fa fa-angle-double-left">&nbsp;&nbsp;Back</i>
+        </a>
+        <button type="submit" class="btn btn-primary btn-sm">
+        <i class="fa fa-check-circle">&nbsp;&nbsp;Submit</i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+  {% endblock %}

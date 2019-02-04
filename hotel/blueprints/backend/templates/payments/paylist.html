@@ -1,0 +1,17 @@
+<tbody>
+	<tr class="table-row">
+    <td>{{payments.id}}</td>
+		<td>{{payments.reserve_id}}</td>
+		<td>{{payments.firstname}} {{payments.lastname}}</td>
+		<td>{{payments.mode}}</td>
+        <td><div class="btn-group">
+          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Action
+          </button>
+          <div class="dropdown-menu">
+             <a class="dropdown-item" href="/payments/{{payments.id}}">Show</a>
+             <a class="dropdown-item" href="/payments/{{payments.id}}/edit">Edit</a>
+             <a class="dropdown-item" href="/payments/{{payments.id}}/delete">Delete</a>
+            </td>
+    </tr>
+</tbody>

@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+{% block body %}
+   <button class="button is-primary">hehe</button>
+
+   <h4 class="head">Users</h4>
+     
+        <div class="row">
+          <div class="col-md">
+            <a href="users/create" class="btn btn-md btnn">
+              <span><i class="fa fa-plus">&nbsp;&nbsp;Create</i></span>
+            </a>
+          </div>
+          <div class="col-md-6">
+            <form action="" method = "POST">
+              <div class="input-group">
+                 {{ form.csrf_token() }}
+                <input class="form-control" type="text" name="search" placeholder=" Type here...">
+                <button class="btn btn-info btn-sm" type="submit">
+                  <i class="fa fa-search"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <br>
+
+
+        
+
+        <div class="table-responsive-md">
+        
+           <table class="table table-bordered table-hover">
+            <thead class="thead">
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Mobile</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Action</th>
+            </thead>
+            <tbody>
+             {% for users in users %}
+                        {% include 'users/list.html' %}
+                      {% endfor %}
+            </tbody>
+
+          </table>
+        </div>
+
+        
+
+
+   
+  {% endblock %}

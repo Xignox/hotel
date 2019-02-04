@@ -1,0 +1,111 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+
+  <div class="column">
+    <div class="card bg-light mb-3">
+      <div class="card-header">
+        <h4>Create User</h4>
+      </div>
+    </div>
+    <div class="card bg-light mb-3">
+      <div class="card-body">
+        <form action="/users/create" method="POST">
+          {{ form.csrf_token() }}
+          <div class="form-row">
+            <div class="form-group col-md-6">
+          <label for="firstname">Firstname:</label>
+          <input type="text" class="form-control" name="firstname" placeholder="Enter Firstname">
+            <ul class="errors">
+              {% for error in form.firstname.errors %}
+              <span><li style="color:red;"> {{error}} </span>
+              {% endfor %}
+            </ul>
+          </div>
+            <div class="form-group col-md-6">
+              <label for="lastname">Lastname</label>
+              <input type="text" class="form-control" name="lastname" placeholder="Enter lastname">
+            <ul class="errors">
+              {% for error in form.lastname.errors %}
+              <span><li style="color:red;"> {{error}} </span>
+              {% endfor %}
+            </ul>              
+            </div>
+            <div class="form-group col-md-6">
+              <label for="middlename">Middlename</label>
+              <input type="text" class="form-control" name="middlename" placeholder="Enter middlename">
+            <ul class="errors">
+              {% for error in form.middlename.errors %}
+              <span><li style="color:red;"> {{error}} </span>
+              {% endfor %}
+            </ul>
+            </div>
+            
+            <div class="form-group col-md-6">
+              <label for="address">Address</label>
+              <input type="text" class="form-control" name="address" placeholder="Enter address">
+            <ul class="errors">
+              {% for error in form.address.errors %}
+              <span><li style="color:red;"> {{error}} </span>
+              {% endfor %}
+            </ul>
+            </div>
+            
+            <div class="form-group col-md-6">
+              <label for="mobile">Mobile Number</label>
+              <input type="text" class="form-control" name="mobile" placeholder="Enter mobile">
+            <ul class="errors">
+              {% for error in form.mobile.errors %}
+              <span><li style="color:red;"> {{error}} </span>
+              {% endfor %}
+            </ul>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="license">Role</label>
+              <input type="text" class="form-control" name="role" placeholder="Enter role">
+            <ul class="errors">
+              {% for error in form.role.errors %}
+              <span><li style="color:red;"> {{error}} </span>
+              {% endfor %}
+            </ul>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="email">Email Address</label>
+              <input type="email" class="form-control" name="email" placeholder="name@example.com">
+                <ul class="errors">
+                  {% for error in form.email.errors %}
+                  <span><li style="color:red;"> {{error}} </span>
+                  {% endfor %}
+                </ul>
+            </div>
+            <div class="form-gro  up col-md-6">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" name="password" placeholder="Enter Password">
+                <ul class="errors">
+                  {% for error in form.password.errors %}
+                  <span><li style="color:red;"> {{error}} </span>
+                  {% endfor %}
+                </ul>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="confirm">Confirm Password</label>
+              <input type="password" class="form-control" name="confirm" placeholder="Enter Password">
+                <ul class="errors">
+                {% for error in form.confirm.errors %}
+                <span><li style="color:red;"> {{error}} </span>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+          <div class="btn-group">
+            <a href="/users" class="btn btn-danger btn-sm">
+              <i class="fa fa-angle-double-left">&nbsp;&nbsp;Back</i>
+            </a>
+            <button type="submit" class="btn btn-primary btn-sm" value="submit">
+              <i class="fa fa-check-circle">&nbsp;&nbsp;Submit</i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  {% endblock %}

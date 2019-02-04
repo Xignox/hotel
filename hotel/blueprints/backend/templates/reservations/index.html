@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+          <h4 class="head">Reservations</h4>
+ 
+        <div class="row">
+          <div class="col-md-6">
+            <a href="reservations/create" class="btn btn-md btnn">
+              <i class="fa fa-plus-circle">&nbsp;&nbsp;Create</i>
+            </a>
+          </div>
+          <div class="col-md-6">
+            <form action="" method = "POST">
+              <div class="input-group">
+                {{ form.csrf_token() }}
+                <input class="form-control" type="text" name="search" placeholder=" Type here...">&nbsp;
+                <button class="btn btn-info btn-sm" type="submit">
+                  <i class="fa fa-search">&nbsp;&nbsp;</i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <br>
+
+        <div class="table-responsive-md">
+           <table class="table table-bordered table-hover">
+            <thead class="thead">
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Room</th>
+              <th scope="col">Date In</th>
+              <th scope="col">Date Out</th>
+              <th scope="col">Child</th>
+              <th scope="col">Adult</th>
+              <th scope="col">Action</th>
+             
+            </tr>
+          </thead>
+          <tbody>
+            {% for reservation in reservations %}
+              {% include 'reservations/list.html' %}
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+  {% endblock %}

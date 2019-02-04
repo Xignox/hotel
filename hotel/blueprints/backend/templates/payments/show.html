@@ -1,0 +1,87 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<tbody>
+  <div class="column">
+    <div class="card bg-light mb-3">
+      <div class="card-header">Details
+        <a href="/payments" class="btn btn-success">
+          <span class="icon is-small">
+            <i class="fa fa-plus"></i>
+          </span>
+          <span>Back</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+   <div class="row">
+    <div class="col-md-6">
+      <div class="card bg-light mb-3">
+        <table class="table">
+          <thead class="thead-light">
+            <tbody>
+              <tr>
+                <th width="150">Receipt Number&nbsp;:</th>
+                <td>{{payments.id}}
+              </tr>
+              <tr>
+                <th width="150">Lastname&nbsp;:</th>
+                <td>{{payments.lastname}}
+              </tr>
+              <tr>
+                <th width="150">Destination(From)&nbsp;:</th>
+                <td>{{reservations.d_from}}
+              </tr>
+              <tr>
+                <th width="150">Departure&nbsp;:</th>
+                <td>{{reservations.departure}}
+              </tr>
+              <tr>
+                <th width="150">Total Amount&nbsp;:</th>
+                <td>{{reservations.amount}}
+              </tr>
+            </tbody>
+          </thead>
+        </table>
+      </div>
+    </div>
+
+        <div class="col-md-6">
+      <div class="card bg-light mb-3">
+        <table class="table">
+          <thead class="thead-light">
+            <tbody>
+              <tr>
+                <th width="150">Firstname&nbsp;:</th>
+                <td>{{payments.firstname}}
+              </tr>
+              <tr>
+                <th width="150">Quantity&nbsp;:</th>
+                <td>{{reservations.regular}}
+              </tr>
+              <tr>
+                <th width="150">Destination(To)&nbsp;:</th>
+                <td>{{reservations.d_to}}
+              </tr>
+              <tr>
+                <th width="150">Promo&nbsp;:</th>
+                <td>{{reservations.promo}}
+              </tr>
+            </tbody>
+          </thead>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+<!-- 
+    Reciept number
+    Name (First and Last)
+    Quantity
+    Amount
+    Destination (From - To)
+    Reservation number
+    Date (Arrival and Departure)
+-->

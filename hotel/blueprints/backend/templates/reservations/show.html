@@ -1,0 +1,43 @@
+
+{% extends 'layout.html' %}
+{% block body %}
+  <div class="card">
+    <div class="card-header">
+      <legend>Reservation details</legend>
+    </div>
+    <div class="card-body">
+      <dl class="col-md-4 sph-data">
+        <dt>Name</dt>
+        <dd>{{reservations.users.firstname}} {{reservations.users.lastname}}</dd>
+      </dl>
+
+       <dl class="col-md-4 sph-data">
+        <dt>Room</dt>
+        <dd>{{reservations.rooms.room_type}} {{reservations.rooms.price}}</dd>
+      </dl>
+      
+      <dl class="col-md-4 sph-data">
+        <dt>Check In</dt>
+        <dd>{{reservations.date_in }}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <dt>Check Out</dt>
+        <dd>{{ reservations.date_out}}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <dt>Child </dt>
+        <dd>{{ reservations.child_count}}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <dt>Adult</dt>
+        <dd>{{ reservations.adult_count}}</dd>
+      </dl>
+    
+      <dl class="col-md-4 sph-data">
+        <a href="/reservations" class="btn btn-danger btn-sm">
+          <i class="fa fa-angle-double-left">&nbsp;&nbsp;Back</i>
+        </a>
+      </dl>
+    </div>
+  </div>
+{% endblock %}

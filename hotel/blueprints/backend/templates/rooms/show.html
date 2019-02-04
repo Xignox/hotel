@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% block body %}
+  <div class="card">
+    <div class="card-header">
+      <legend>rooms Details</legend>
+    </div>
+    <div class="card-body">
+      <dl class="col-md-4 sph-data">
+        <dt>Room Type</dt>
+        <dd>{{ rooms.room_type}}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <dt>Room Status</dt>
+        <dd>{{ rooms.status}}</dd>
+      </dl>
+      <dl class="col-md-4 sph-data">
+        <dt>Price</dt>
+        <dd>{{ rooms.price}}</dd>
+      </dl>
+     
+      <dl class="col-md-4 sph-data">
+        <a href="/rooms" class="btn btn-danger btn-sm">
+          <i class="fa fa-angle-double-left">&nbsp;&nbsp;Back</i>
+        </a>
+      </dl>
+    </div>
+  </div>
+{% endblock %}
+

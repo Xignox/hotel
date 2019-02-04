@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="column">
+  <div class="card bg-light mb-3">
+    <div class="card-header">Edit Information
+    </div>
+  </div>
+  <div class="card bg-light mb-3">
+    <div class="card-body">
+      <form method="POST" action="/payments/{{payments.id}}">
+        <input type="hidden"  name="_method" value="PUT">
+        
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="reserve_id">Reserve_ID</label>
+            <input type="text" class="form-control" name="reserve_id" value={{payments.reserve_id}}>
+          </div>
+        </div>
+
+        <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="firstname">FirstName</label>
+          <input type="text" class="form-control" name="firstname" value={{payments.firstname}}>
+        </div>
+          <div class="form-group col-md-6">
+            <label for="lastname">LastName</label>
+            <input type="text" class="form-control" name="lastname" value={{payments.lastname}}>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="mode">Mode Of Payment</label>
+              <select name="mode"> 
+                <option value="/">{{payments.model}}</option>    
+                <option value="utangmuna">Utang Muna</option>
+                <option value="utangnalang">Utang Nalang</option>
+                <option value="libre">Libre Na</option>
+             </select>
+
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

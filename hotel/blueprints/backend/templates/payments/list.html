@@ -1,0 +1,19 @@
+<tbody>
+	<tr class="table-row">
+    <td>{{payments.id}}</td>
+		<td>{{payments.reserve_id}}</td>
+		<td>{{payments.firstname}} {{payments.lastname}}</td>
+		<td>{{payments.mode}}</td>
+        <td>
+      <div class="dropdown">
+        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Action
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li>&nbsp;&nbsp;<a href="schedules/{{schedules.id}}" i class="fa fa-eye">&nbsp;&nbsp;View</a></li>
+          <li>&nbsp;&nbsp;<a href="schedules/{{schedules.id}}/edit" i class="fa fa-edit">&nbsp;&nbsp;Edit</a></li>
+          <li>&nbsp;&nbsp;<a href="schedules/{{schedules.id}}/delete" i class="fa fa-trash">&nbsp;&nbsp;Delete</a></li>
+        </ul>
+      </div>
+    </td>
+    </tr>
+</tbody>

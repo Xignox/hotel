@@ -1,0 +1,68 @@
+{% extends 'layout.html' %}
+{% block body %}
+  <div class="column">
+    <div class="card bg-light mb-3">
+      <div class="card-header">
+        <h4>Create Room</h4>
+      </div>
+    </div>
+
+    <div class="card bg-light mb-2">
+      <div class="card-body">
+        <form action="/rooms/create" method="POST">
+          {{ form.csrf_token() }}     
+
+      <div class="col">
+    
+      <label for="name">Room Type</label>
+                    <input type="text" class="form-control" name="room_type" placeholder="Enter Room  type">
+
+                        <ul class="errors">
+                          {% for error in form.room_type.errors %}
+                          <span><li style="color:red;"> {{error}} </span>
+                          {% endfor %}
+                        </ul>
+
+    </div>
+
+    <div class="col">
+      <label>status</label>
+        <input type="text" class="form-control" name="status" placeholder="Enter Status">
+         <ul class="errors">
+          {% for error in form.status.errors %}
+          <span><li style="color:red;"> {{error}} </li></span>
+          {% endfor %}
+        </ul>
+    </div> 
+   
+    <div class="col">
+      <label for="latitude">Price</label>
+        <input type="text" class="form-control" name="price" placeholder="Enter Price">
+          <ul class="errors">
+            {% for error in form.price.errors %}
+            <span><li style="color:red;"> {{error}} </li></span>
+            {% endfor %}
+          </ul>
+    </div>
+
+  <br>
+
+  <div class="form-group">
+   <div class="btn-group">
+      <a href="/rooms" class="btn btn-danger">
+        <i class="fa fa-angle-double-left">&nbsp;&nbsp;Back</i>
+      </a>
+      <button type="submit" class="btn btn-primary">
+        <i class="fa fa-check-circle">&nbsp;&nbsp;Submit</i>
+      </button>
+    </div>
+  </div>
+
+</form>
+
+</div>
+</div>
+
+
+     
+  {% endblock %}

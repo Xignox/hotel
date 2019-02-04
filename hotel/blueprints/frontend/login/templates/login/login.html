@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+  <head>
+    <title>Hotel SSCR-dC</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <link rel="stylesheet" type="text/css" href="../css/login.css">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <!------ Include the above in your HEAD tag ---------->
+     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <style >
+
+      body{ 
+        background-image:url("https://hdwallsource.com/img/2014/10/motion-blur-wallpapers-37066-37909-hd-wallpapers.jpg"); 
+        
+      }
+
+    .form-heading { 
+      color:white; 
+      font-size:50px; 
+      font-family: 'Raleway', sans-serif; 
+      margin-top: 20px;
+      margin-left: -10px;
+    }
+    .panel h2{ 
+      color:white; 
+      font-family: 'Raleway', sans-serif; 
+      font-size:25px; 
+      margin:0 0 8px 0;
+    }
+    .login-form .form-control {
+      background: white none repeat scroll 0 0;
+      border: 1px solid #d4d4d4;
+      border-radius: 6px;
+      font-size: 16px;
+      height: 50px;
+      line-height: 50px;
+      color: black;
+      margin-top: 10px;
+      
+    }
+    .main-div {
+      background: transparent none repeat scroll 0 0;
+      border-radius: 4px;
+      margin: 10px auto 30px;
+      margin-left: -20px;
+      max-width: 30%;
+
+    }
+
+    .login-form .form-group {
+      margin-bottom:10px;
+    }
+    .login-form{ 
+      font-family: euphemia;
+      text-align:center;
+      color: white;
+    }
+    .mleft{
+      float: left;
+
+    }
+   
+    
+
+    </style>
+  </head>
+
+<body>
+
+<div class="container">
+  <h1 class="form-heading">Hotel SSCR-dC</h1> 
+    <br>
+    <div class="login-form">
+      <div class="main-div">
+        <div class="panel">
+          <h2><b>LOGIN</b></h2>
+        </div>
+          <form  action="/login" method="post" role="form">
+            {{ form.csrf_token() }}
+            <div class="form-group">
+              <label for="email">Email:</label>
+                <input type="text" class="form-control"  name="email" placeholder="Your email address.">
+                <br>
+                  <label for="password">Password:</label>
+                    <input type="password" class="form-control" name="password" placeholder="Enter a password.">
+            </div>
+                    <br>                                                       
+                      <center>
+                        <p> Don't have a coount?  <a href="/signup">Signup </a></p>
+                          <button type="submit" class="btn btn-info">Submit</button>
+                      </center>
+          </form>
+          
+      </div>
+    </div>
+</div>
+ 
+
+</body>
+</html>

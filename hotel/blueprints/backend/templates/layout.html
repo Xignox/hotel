@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Bootstrap CSS -->
+		 <link rel="stylesheet" href="../../static/css/main.css">
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+		<style>
+			.head
+			{
+				margin-top: 30px;
+				font-size: 35px;
+				font-family: Euphemia;
+			}
+
+			.btnn{
+				background-color: #FC8860;
+				color: white;
+				
+			}
+
+
+
+			.thead{
+				background-color: #6BDCF0;
+				color: white;
+			}
+
+			.navbar
+			{
+				background:	#0BC5BA;
+				line-height: 2;
+			}
+			a:link, a:visited {
+							  padding: 14px 25px;
+							  text-align: center; 
+							  text-decoration: none;
+							  display: inline-block;
+							}
+
+			p{
+				color: white;
+				font-size: 25px;
+				font-family: Euphemia;
+
+			}
+
+			.logout{
+				color: white;
+			}
+
+			.tbody{
+				background-color: white;
+			}
+
+			
+		</style>
+
+	</head>
+	<body style="background-color: #f2f2f2;">
+		
+			{% include 'includes/navigation.html'%}
+		<div class="col-md-17 ">	
+			
+				<div class="container-fluid">
+					<br>
+
+
+							{% block body %}{% endblock %}
+							
+						</div>
+					</div>
+			</section>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+		<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+		<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.body.style.backgroundColor = "rgba(0,0,0,0)";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+  document.body.style.backgroundColor = "white";
+}
+</script>
+	</body>
+</html>

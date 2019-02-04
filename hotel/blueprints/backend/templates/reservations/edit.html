@@ -1,0 +1,105 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="card">
+  <div class="card bg-light mb-3">
+    <div class="card-header">
+      <h4>Edit Reservation</h4>
+    </div>
+  </div>
+  <div class="card-body bg-light mb-3">
+    <form action="/reservations/{{reservations.id}}/edit" method="POST">
+      <input type="hidden" name="_method" value="PUT">
+      {{ form.csrf_token() }}
+      <div class="fieldset">
+        <div class="form-group">
+          <label for="schedule_id">Schedule</label>
+          <select type="text" name="schedule_id" class="form-control">
+            {% for schedule in schedules  %}
+            {% if schedule.id == schedule.schedule_id %} 
+            <option value={{schedule.id}}  selected="">{{schedule.departured_at}}</option>
+            {% else %}
+            <option value="{{schedule.id}}">{{schedule.departured_at}}</option>
+            {% endif %}
+            {% endfor %}
+          </select>
+        </div>
+      <div class="fieldset">
+        <div class="form-group">
+          <label for="passenger_id">Passenger</label>
+          <select type="text" name="passenger_id" class="form-control">
+            {% for user in users  %}
+            {% if user.id == user.passenger_id %} 
+            <option value={{user.id}}  selected="">{{user.firstname}} {{user.lastname}}</option>
+            {% else %}
+            <option value="{{user.id}}">{{user.firstname}} {{user.lastname}}</option>
+            {% endif %}
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+      <div class="fieldset">
+        <div class="form-group">
+          <label for="route_id">Route</label>
+          <select type="text" name="route_id" class="form-control">
+            {% for bus in bus  %}
+            {% if bus.id == bus.route_id %} 
+            <option value={{bus.id}}  selected="">{{bus.arrival}} {{bus.departure}}</option>
+            {% else %}
+            <option value="{bus.id}}">{{bus.arrival}} {{bus.departure}}</option>
+            {% endif %}
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+      <div class="fieldset">
+        <div class="from-group">
+          <label for="datetime">Date / Time</label>
+          <input type="date" name="datetime" class="form-control" value="{{reservations.datetime}}" placeholder="Enter date">
+        </div>
+      </div>
+      <div class="fieldset">
+        <div class="from-group">
+          <label for="quantity">Quantity</label>
+          <input type="text" name="quantity" class="form-control" value="{{reservations.quantity}}" placeholder="Enter quantity">
+            <ul class="errors">
+              {% for error in form.quantity.errors %}
+              <li>{{ error }}</li>
+              {% endfor %}
+            </ul>          
+        </div>
+      </div>
+      <div class="fieldset">
+        <div class="from-group">
+          <label for="amount">Amount</label>
+          <input type="text" name="amount" class="form-control" value="{{reservations.amount}}" placeholder="Enter amount">
+        </div>
+      </div>
+      <div class="fieldset">
+        <div class="from-group">
+          <label for="discount">Discount</label>
+          <input type="text" name="discount" class="form-control" value="{{reservations.discount}}" placeholder="Enter discount">
+        </div>
+      </div>
+      <div class="fieldset">
+        <div class="from-group">
+          <label for="status">Status</label>
+          <div class="radio">
+              <label><input type="radio" name="status" value="1" checked="">Pending</label>
+          </div>
+          <div class="radio">
+              <label><input type="radio" name="status" value="2">Reserved</label>
+          </div>
+        </div>
+      </div>
+      <div class="btn-group">
+        <a href="/reservations" class="btn btn-danger btn-sm">
+          <i class="fa fa-angle-double-left">&nbsp;&nbsp;Back</i>
+        </a>
+        <button type="submit" class="btn btn-primary btn-sm">
+        <i class="fa fa-check-circle">&nbsp;&nbsp;Update</i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+  {% endblock %}
